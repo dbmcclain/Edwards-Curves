@@ -17,4 +17,6 @@ No restrictions are placed on this code, but if you find it useful, and make int
 
 … also provided my implementation of CTR-HASH-DRBG which is used for generating random number from the entropy pool using SHA256 from the Ironclad library. A separate thread runs in the background to produce additional entropy extraction as needed. There is a producer / consumer buffer that triggers the background thread when the pool gets below the low-water mark.
 
+General references for this stuff… Look for Daniel J Bernstein on Google, and SafeCurves, Elligator, Edwards Curves, Elliptic Curve Crypto, prime number fields. DJB is not the only contributor, but he has written some very complete expositions on the math behind the transforms from Weierstrass form of Elliptic Curves to Edwards forms. Not easy slogging, but worthwhile.
+
 - DM
