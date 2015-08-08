@@ -25,7 +25,7 @@
 (define-symbol-macro *ed-gen* (ed-curve-gen *edcurve*))
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (unless (boundp 'ecc-pt)
+  (unless (fboundp 'make-ecc-pt)
     (defstruct ecc-pt
       x y))
   (defstruct ed-proj-pt
