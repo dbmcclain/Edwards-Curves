@@ -24,6 +24,13 @@
 (define-symbol-macro *ed-h*   (ed-curve-h   *edcurve*))
 (define-symbol-macro *ed-gen* (ed-curve-gen *edcurve*))
 
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (unless (boundp 'ecc-pt)
+    (defstruct ecc-pt
+      x y))
+  (defstruct ed-proj-pt
+    x y z))
+
 (defvar *curve1174*
   (setf *edcurve*
         (make-ed-curve
@@ -90,13 +97,6 @@
   (expt-mod *ed-q* arg n))
 
 ;; ----------------------------------------------------------------
-
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (unless (boundp 'ecc-pt)
-    (defstruct ecc-pt
-      x y))
-  (defstruct ed-proj-pt
-    x y z))
 
 (defun ed-neutral-point ()
   (make-ecc-pt
